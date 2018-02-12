@@ -8,5 +8,10 @@
       "name":"用户",
       "template":"user"
     }
-  ]
+  ],
+  "consoleConfig":true,
+  "netWork":{
+    "ip":"localhost",
+    "host":"8080"
+  }
 }
