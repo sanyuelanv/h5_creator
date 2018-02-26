@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./dev/webpack-server.js"
+    "dev": "node ./dev/webpack-server.js",
+    "dep": "NODE_ENV='production' webpack -p --progress --colors --config webpack.production.config.js"
   },
   "babel": {
     "presets": [
-      "env"
+      "env",
+      "react"
     ]
   },
   "eslintConfig": {
@@ -29,7 +31,9 @@
       "document": false,
       "navigator": false,
       "window": false,
-      "location": false
+      "location": false,
+      "React":false,
+      "ReactDom":false
     },
     "rules": {
       "accessor-pairs": 2,
@@ -341,7 +345,10 @@
         2,
         "never"
       ]
-    }
+    },
+    "extends": [
+      "plugin:react/recommended"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -350,8 +357,10 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
     "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
@@ -365,6 +374,8 @@
     "webpack-hot-middleware": "^2.21.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
